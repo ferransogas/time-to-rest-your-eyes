@@ -3,9 +3,9 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import random
 
-def update_position(root):
-    x, y = random.randint(0, root.winfo_screenwidth() - 140), random.randint(0, root.winfo_screenheight() - 70)
-    root.geometry(f'{root.winfo_width()}x{root.winfo_height()}+{x}+{y}')
+img_path="hola.jpg"
+timer_sec=15*60
+rest_time_ms=60000
 
 def open_img():
 
@@ -17,7 +17,7 @@ def open_img():
     #root.attributes('-topmost', True)
     root.wm_attributes('-transparentcolor', root.cget('bg'))
     # Load an image and preserve its aspect ratio
-    path = "hola.jpg"
+    path = img_path
     image = Image.open(path)
     original_size = image.size
     width, height = image.size
@@ -39,13 +39,10 @@ def open_img():
     y = random.randint(0, screen_height - root.winfo_height())
     root.geometry(f'{root.winfo_width()}x{root.winfo_height()}+{x}+{y}')
     
-    root.after(1000, update_position(root))
-    
-    
     # Start the event loop
-    root.after(90000, root.destroy)
+    root.after(rest_time_ms, root.destroy)
     root.mainloop()
 
 while(1):
-    time.sleep(3)
+    time.sleep(timer_sec)
     open_img()
