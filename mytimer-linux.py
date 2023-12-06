@@ -13,9 +13,8 @@ def open_img():
     root = tk.Tk()
     root.overrideredirect(1)
     # Set the window to be transparent
-    root.attributes('-alpha', 1.0)
-    root.attributes('-topmost', True)  # This line keeps the window on top
-    root.wm_attributes('-transparentcolor', root.cget('bg'))
+    root.attributes('-alpha', 0.5)  # Adjust transparency as needed
+    root.wm_attributes('-type', 'splash')  # This line keeps the window on top
     # Load an image and preserve its aspect ratio
     path = img_path
     image = Image.open(path)
