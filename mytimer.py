@@ -3,7 +3,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import random
 
-img_path="hola.jpg"
+img_path="timer.jpeg"
 timer=15*60     #min*60sec = 15min
 rest_time=60000 #min*60sec*1000ms = 1min
 
