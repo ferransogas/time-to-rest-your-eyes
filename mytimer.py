@@ -4,8 +4,8 @@ from PIL import Image, ImageTk
 import random
 
 img_path="hola.jpg"
-timer_sec=15*60
-rest_time_ms=60000
+timer=15*60     #min*60sec = 15min
+rest_time=60000 #min*60sec*1000ms = 1min
 
 def open_img():
 
@@ -14,7 +14,7 @@ def open_img():
     root.overrideredirect(1)
     # Set the window to be transparent
     root.attributes('-alpha', 1.0)
-    #root.attributes('-topmost', True)
+    root.attributes('-topmost', True)  # This line keeps the window on top
     root.wm_attributes('-transparentcolor', root.cget('bg'))
     # Load an image and preserve its aspect ratio
     path = img_path
@@ -39,10 +39,11 @@ def open_img():
     y = random.randint(0, screen_height - root.winfo_height())
     root.geometry(f'{root.winfo_width()}x{root.winfo_height()}+{x}+{y}')
     
+
     # Start the event loop
-    root.after(rest_time_ms, root.destroy)
+    root.after(rest_time, root.destroy)
     root.mainloop()
 
 while(1):
-    time.sleep(timer_sec)
+    time.sleep(timer)
     open_img()
